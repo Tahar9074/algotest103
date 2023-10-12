@@ -1,0 +1,25 @@
+PROCEDURE insertion_sort(VAR arr : ARRAY_OF INTEGER)
+VAR
+    i,j,current : INTEGER;
+BEGIN
+    FOR i FROM 1 TO arr.length-1 DO
+        current := arr [i];
+        j := i-1;
+        WHILE (j >= 0 AND arr[j] > current) DO
+            arr[j+1] := arr[j];
+            j := j-1;
+        END_WHILE
+        arr[j+1] = current;
+    END_FOR
+END
+*****Palindrome*****
+FUNCTION is_palindrome(s : STRING[50], start,end : INTEGER) : BOOLEAN
+BEGIN
+    IF (start >= end) THEN
+        RETURN TRUE;
+    ELSE_IF (s[start] = s[end]) THEN
+        RETURN is_palindrome(s, start +1, end -1);
+    ELSE
+        RETURN FALSE
+    END_IF
+END
